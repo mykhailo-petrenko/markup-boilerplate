@@ -1,0 +1,48 @@
+{
+  "name": "test-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --env.development --config webpack.config.js",
+    "lint": "node_modules/.bin/esw webpack.config.js src .build",
+    "lint:watch": "npm run lint -- --watch",
+    "test": "mocha --compilers js:babel-core/register .build/testSetup.js \"test/**/*.spec.js\"",
+    "test:watch": "npm run test -- --watch",
+    "remove:target": "rimraf ./target",
+    "clean": "npm run remove:target && mkdir target",
+    "prebuild": "npm run clean",
+    "build": "webpack --env.production --config webpack.config.js"
+  },
+  "author": "Mykhailo Petrenko",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^7.1.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "eslint": "^4.6.1",
+    "eslint-plugin-chai-friendly": "^0.4.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-watch": "^3.1.2",
+    "extract-loader": "^1.0.1",
+    "file-loader": "^1.1.5",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "mocha": "^3.3.0",
+    "rimraf": "^2.6.1",
+    "sinon": "^3.2.1",
+    "webpack": "^3.5.5",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-dev-server": "^2.7.1",
+    "webpack-hot-middleware": "^2.18.2",
+    "webpack-stream": "^4.0.0"
+  },
+  "dependencies": {
+    "html-loader": "^0.5.1"
+  }
+}
